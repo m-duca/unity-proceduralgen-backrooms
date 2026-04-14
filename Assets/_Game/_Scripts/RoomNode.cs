@@ -5,8 +5,8 @@ namespace Backrooms
     public class RoomNode : Node
     {
         // Getters
-        public int Width { get { return TopRightAreaCorner.x - BottomLeftAreaCorner.x; } }
-        public int Length { get { return TopRightAreaCorner.y - BottomLeftAreaCorner.y; } }
+        public int Width { get { return TopRightAreaCorner.x - TopLeftAreaCorner.x; } }
+        public int Length { get { return TopRightAreaCorner.y - BottomRightAreaCorner.y; } }
 
         public RoomNode(Vector2Int bottomLeftAreaCorner, Vector2Int topRightAreaCorner, 
                             Node parentNode, int treeLayerIndex) : base(parentNode)
