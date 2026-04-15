@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace Backrooms
 {
@@ -8,8 +7,7 @@ namespace Backrooms
         private int _totalWidth;
         private int _totalLength;
 
-        private RoomNode _rootNode;
-        private List<RoomNode> _allNodes = new();
+        private List<RoomNode> _totalNodes = new();
 
         public BackroomsGenerator(int totalWidth, int totalLength)
         {
@@ -17,9 +15,12 @@ namespace Backrooms
             this._totalLength = totalLength;
         }
 
-        internal object CalculateRooms(int maxIterations, int roomMinWidth, int roomMinLength)
+        public List<Node> CalculateRooms(int maxIterations, int roomMinWidth, int roomMinLength)
         {
-            return null;
+            BinarySpacePartitioner bsp = new BinarySpacePartitioner(_totalWidth, _totalLength);
+            _totalNodes = bsp.PrepareNodesCollection(maxIterations, roomMinWidth, roomMinLength);
+        
+            return new List<Node>( _totalNodes);
         }
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Backrooms
@@ -34,7 +35,7 @@ namespace Backrooms
 
         private void CreateBackrooms()
         {
-            var roomsList = _generator.CalculateRooms(_maxIterations, _roomMinWidth, _roomMinLength);
+            List<Node> roomsList = _generator.CalculateRooms(_maxIterations, _roomMinWidth, _roomMinLength);
         }
     }
 }
