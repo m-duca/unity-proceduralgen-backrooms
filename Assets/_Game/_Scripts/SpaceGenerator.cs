@@ -2,14 +2,14 @@ using System.Collections.Generic;
 
 namespace Backrooms
 {
-    public class BackroomsGenerator
+    public class SpaceGenerator
     {
         private int _totalWidth;
         private int _totalLength;
 
         private List<RoomNode> _totalNodes = new();
 
-        public BackroomsGenerator(int totalWidth, int totalLength)
+        public SpaceGenerator(int totalWidth, int totalLength)
         {
             this._totalWidth = totalWidth;
             this._totalLength = totalLength;
