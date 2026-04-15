@@ -543,8 +543,11 @@ MonoBehaviour:
   _totalLength: 100
   _roomMinWidth: 25
   _roomMinLength: 25
+  _roomBottomLeftModifier: 0.1
+  _roomTopRightModifier: 0.9
+  _roomOffset: 1
   _corridorWidth: 2
-  _maxIterations: 1
+  _maxIterations: 10
   _floorMaterial: {fileID: 2100000, guid: 929dc3bf41496594cbcd3d4badf496d4, type: 2}
 --- !u!1 &1842080163
 GameObject:
