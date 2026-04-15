@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Backrooms
 {
-    public class BackroomsCreator : MonoBehaviour
+    public class SpaceCreator : MonoBehaviour
     {
         // Inspector
         [Header("Parameters")]
@@ -21,11 +21,11 @@ namespace Backrooms
         [SerializeField] private int _maxIterations;
 
         // Not serialized
-        private BackroomsGenerator _generator;
+        private SpaceGenerator _generator;
 
         private void Awake()
         {
-            _generator = new BackroomsGenerator(_totalWidth, _totalLength);
+            _generator = new SpaceGenerator(_totalWidth, _totalLength);
         }
 
         private void Start()

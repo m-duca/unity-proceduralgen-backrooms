@@ -506,7 +506,7 @@ GameObject:
   - component: {fileID: 1549474207}
   - component: {fileID: 1549474208}
   m_Layer: 0
-  m_Name: BackroomsCreator
+  m_Name: SpaceCreator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
