@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Backrooms
 {
@@ -33,6 +34,36 @@ namespace Backrooms
             }
 
             return listToReturn;
+        }
+
+        public static Vector2Int RandomizeBottomLeftAreaCorner(Vector2Int boundaryLeftPoint, Vector2Int boundaryRightPoint, float pointModifier, int offset)
+        {
+            int minX = boundaryLeftPoint.x + offset;
+            int maxX = boundaryRightPoint.x - offset;
+
+            int minY = boundaryLeftPoint.y + offset;
+            int maxY = boundaryRightPoint.y - offset;
+
+            return new Vector2Int
+            (
+                Random.Range(minX, (int)(minX + (maxX - minX) * pointModifier)), 
+                Random.Range(minY, (int)(minY + (maxY - minY) * pointModifier))
+            );
+        }
+
+        public static Vector2Int RandomizeTopRightAreaCorner(Vector2Int boundaryLeftPoint, Vector2Int boundaryRightPoint, float pointModifier, int offset)
+        {
+            int minX = boundaryLeftPoint.x + offset;
+            int maxX = boundaryRightPoint.x - offset;
+
+            int minY = boundaryLeftPoint.y + offset;
+            int maxY = boundaryRightPoint.y - offset;
+
+            return new Vector2Int
+            (
+                Random.Range((int)(minX + (maxX - minX) * pointModifier), maxX), 
+                Random.Range((int)(minY + (maxY - minY) * pointModifier), maxY)
+            );
         }
     }
 }

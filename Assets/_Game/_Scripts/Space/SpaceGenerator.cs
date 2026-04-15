@@ -19,8 +19,12 @@ namespace Backrooms
         {
             BinarySpacePartitioner bsp = new BinarySpacePartitioner(_totalWidth, _totalLength);
             _totalNodes = bsp.PrepareNodesCollection(maxIterations, roomMinWidth, roomMinLength);
+            
             List<Node> roomSpaces = StructureHelper.TraverseGraph(bsp.RootNode);
-            return new List<Node>( _totalNodes);
+            RoomGenerator roomGenerator = new RoomGenerator(maxIterations, roomMinWidth, roomMinLength);
+            List<RoomNode> roomNodes  = roomGenerator.GenerateRoomsBySpaces(roomSpaces);
+
+            return new List<Node>( roomNodes);
         }
     }
 }
