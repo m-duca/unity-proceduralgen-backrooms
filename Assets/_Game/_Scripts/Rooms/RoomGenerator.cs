@@ -17,20 +17,14 @@ namespace Backrooms
             this._roomMinLength = roomMinLength;
         }
 
-        public List<RoomNode> GenerateRoomsBySpaces(List<Node> roomSpaces)
+        public List<RoomNode> GenerateRoomsBySpaces(List<Node> roomSpaces, float roomBottomLeftModifier, float roomTopRightModifier, int roomOffset)
         {
             List<RoomNode> listToReturn = new List<RoomNode>();
 
-            float bottomLeftModifier = 0.1f;
-            float topRightModifier = 0.9f;
-
-            int bottomLeftOffset = 1;
-            int topRightOffset = 1;
-
             foreach (Node spaceNode in roomSpaces)
             {
-                Vector2Int newBottomLeftAreaCorner = StructureHelper.RandomizeBottomLeftAreaCorner(spaceNode.BottomLeftAreaCorner, spaceNode.TopRightAreaCorner, bottomLeftModifier, bottomLeftOffset);
-                Vector2Int newTopRightAreaCorner = StructureHelper.RandomizeTopRightAreaCorner(spaceNode.BottomLeftAreaCorner, spaceNode.TopRightAreaCorner, topRightModifier, topRightOffset);
+                Vector2Int newBottomLeftAreaCorner = StructureHelper.RandomizeBottomLeftAreaCorner(spaceNode.BottomLeftAreaCorner, spaceNode.TopRightAreaCorner, roomBottomLeftModifier, roomOffset);
+                Vector2Int newTopRightAreaCorner = StructureHelper.RandomizeTopRightAreaCorner(spaceNode.BottomLeftAreaCorner, spaceNode.TopRightAreaCorner, roomTopRightModifier, roomOffset);
                 
                 // Assigning new corners
                 spaceNode.BottomLeftAreaCorner = newBottomLeftAreaCorner;
