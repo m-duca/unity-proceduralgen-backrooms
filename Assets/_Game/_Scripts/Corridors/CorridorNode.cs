@@ -1,18 +1,17 @@
-using System;
 using UnityEngine;
 
 namespace Backrooms
 {
     public class CorridorNode : Node
     {
-        private Node _structure1;
-        private Node _structure2;
+        private Node _node1;
+        private Node _node2;
         private int _corridorWidth;
 
         public CorridorNode(Node node1, Node node2, int corridorWidth) : base(null)
         {
-            this._structure1 = node1;
-            this._structure2 = node2;
+            this._node1 = node1;
+            this._node2 = node2;
             this._corridorWidth = corridorWidth;
 
             GenerateCorridor();
@@ -20,44 +19,44 @@ namespace Backrooms
 
         private void GenerateCorridor()
         {
-            RelativePositionType relativePositionOfStructure2 = CheckPositionStructure2AgainstStructure1();
+            RelativePositionType relativePositionNode2 = CheckRelativePositionAtNode2();
             
-            switch(relativePositionOfStructure2)
+            switch(relativePositionNode2)
             {
                 case RelativePositionType.Up:
-                    ProcessRoomOnVertical(this._structure1, this._structure2);
+                    ProcessRoomOnVertical(this._node1, this._node2);
                     break;
 
                 case RelativePositionType.Down:
-                    ProcessRoomOnVertical(this._structure2, this._structure1);
+                    ProcessRoomOnVertical(this._node2, this._node1);
                     break;
 
                 case RelativePositionType.Right:
-                    ProcessRoomOnHorizontal(this._structure1, this._structure2);
+                    ProcessRoomOnHorizontal(this._node1, this._node2);
                     break;
 
                 case RelativePositionType.Left:
-                    ProcessRoomOnHorizontal(this._structure2, this._structure1);
+                    ProcessRoomOnHorizontal(this._node2, this._node1);
                     break;
             }
         }
 
-        private void ProcessRoomOnHorizontal(Node structure1, Node structure2)
+        private void ProcessRoomOnHorizontal(Node node1, Node node2)
         {
             
         }
 
-        private void ProcessRoomOnVertical(Node structure1, Node structure2)
+        private void ProcessRoomOnVertical(Node node1, Node node2)
         {
             
         }
 
-        private RelativePositionType CheckPositionStructure2AgainstStructure1()
+        private RelativePositionType CheckRelativePositionAtNode2()
         {
-            Vector2 middlePointStructure1 = ((Vector2)_structure1.TopRightAreaCorner + _structure1.BottomLeftAreaCorner) / 2;
-            Vector2 middlePointStructure2 = ((Vector2)_structure2.TopRightAreaCorner + _structure2.BottomLeftAreaCorner) / 2;
+            Vector2 middlePointNode1 = ((Vector2)_node1.TopRightAreaCorner + _node1.BottomLeftAreaCorner) / 2;
+            Vector2 middlePointNode2 = ((Vector2)_node2.TopRightAreaCorner + _node2.BottomLeftAreaCorner) / 2;
 
-            float relativeAngle = CalculateAngleBetweenStructures(middlePointStructure1, middlePointStructure2);
+            float relativeAngle = CalculateAngleBetweenNodes(middlePointNode1, middlePointNode2);
 
             RelativePositionType relativePosition;
 
@@ -73,9 +72,9 @@ namespace Backrooms
             return relativePosition;
         }
 
-        private float CalculateAngleBetweenStructures(Vector2 middlePointStructure1, Vector2 middlePointStructure2)
+        private float CalculateAngleBetweenNodes(Vector2 middlePointNode1, Vector2 middlePointNode2)
         {
-            return Mathf.Atan2(middlePointStructure2.y - middlePointStructure1.y, middlePointStructure2.x - middlePointStructure1.x) * Mathf.Rad2Deg;
+            return Mathf.Atan2(middlePointNode2.y - middlePointNode1.y, middlePointNode2.x - middlePointNode1.x) * Mathf.Rad2Deg;
         }
     }
 }
