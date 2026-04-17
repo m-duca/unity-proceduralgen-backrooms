@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Backrooms
 {
@@ -26,7 +27,7 @@ namespace Backrooms
             CorridorGenerator corridorGenerator = new CorridorGenerator();
             List<Node> corridorsNode = corridorGenerator.CreateCorridors(_totalNodes, corridorWidth);
 
-            return new List<Node>( roomNodes);
+            return new List<Node>( roomNodes).Concat(corridorsNode).ToList();
         }
     }
 }

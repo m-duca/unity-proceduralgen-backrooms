@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -70,7 +69,7 @@ namespace Backrooms
         {
             Vector2 sum = point1 + point2;
             Vector2 middlePoint = sum / 2;
-            
+
             return new Vector2Int((int)middlePoint.x, (int)middlePoint.y);
         }
     }
