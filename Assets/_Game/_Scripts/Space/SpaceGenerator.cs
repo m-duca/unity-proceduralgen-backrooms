@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Backrooms
 {
@@ -14,7 +15,7 @@ namespace Backrooms
             this._totalLength = totalLength;
         }
 
-        public List<Node> CalculateRooms(int maxIterations, int roomMinWidth, int roomMinLength, float roomBottomLeftModifier, float roomTopRightModifier, int roomOffset)
+        public List<Node> CalculateSpace(int maxIterations, int roomMinWidth, int roomMinLength, float roomBottomLeftModifier, float roomTopRightModifier, int roomOffset, int corridorWidth)
         {
             BinarySpacePartitioner bsp = new BinarySpacePartitioner(_totalWidth, _totalLength);
             _totalNodes = bsp.PrepareNodesCollection(maxIterations, roomMinWidth, roomMinLength);
@@ -23,7 +24,10 @@ namespace Backrooms
             RoomGenerator roomGenerator = new RoomGenerator(maxIterations, roomMinWidth, roomMinLength);
             List<RoomNode> roomNodes  = roomGenerator.GenerateRoomsBySpaces(roomSpaces, roomBottomLeftModifier, roomTopRightModifier, roomOffset);
 
-            return new List<Node>( roomNodes);
+            CorridorGenerator corridorGenerator = new CorridorGenerator();
+            List<Node> corridorsNode = corridorGenerator.CreateCorridors(_totalNodes, corridorWidth);
+
+            return new List<Node>( roomNodes).Concat(corridorsNode).ToList();
         }
     }
 }
