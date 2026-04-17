@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -7,7 +6,7 @@ namespace Backrooms
 {
     public static class StructureHelper
     {
-        public static List<Node> TraverseGraph(RoomNode parentNode)
+        public static List<Node> TraverseGraph(Node parentNode)
         {
             Queue<Node> nodesQueue = new Queue<Node>();
             List<Node> listToReturn = new List<Node>();
@@ -64,6 +63,14 @@ namespace Backrooms
                 Random.Range((int)(minX + (maxX - minX) * pointModifier), maxX), 
                 Random.Range((int)(minY + (maxY - minY) * pointModifier), maxY)
             );
+        }
+
+        public static Vector2Int CalculateMiddlePoint(Vector2Int point1, Vector2Int point2)
+        {
+            Vector2 sum = point1 + point2;
+            Vector2 middlePoint = sum / 2;
+
+            return new Vector2Int((int)middlePoint.x, (int)middlePoint.y);
         }
     }
 }
