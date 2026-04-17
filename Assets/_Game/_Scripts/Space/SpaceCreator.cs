@@ -37,7 +37,7 @@ namespace Backrooms
 
         private void CreateSpace()
         {
-            List<Node> roomsList = _generator.CalculateRooms(_maxIterations, _roomMinWidth, _roomMinLength, _roomBottomLeftModifier, _roomTopRightModifier, _roomOffset);
+            List<Node> roomsList = _generator.CalculateSpace(_maxIterations, _roomMinWidth, _roomMinLength, _roomBottomLeftModifier, _roomTopRightModifier, _roomOffset, _corridorWidth);
 
             foreach (Node room in roomsList)
                MeshSpawner.CreateMesh(room.BottomLeftAreaCorner, room.TopRightAreaCorner, "Mesh_Floor_", _floorMaterial);
