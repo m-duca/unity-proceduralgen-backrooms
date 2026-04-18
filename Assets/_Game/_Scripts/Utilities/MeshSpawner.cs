@@ -4,7 +4,8 @@ namespace Backrooms
 {
     public static class MeshSpawner
     {
-        public static void CreateMesh(Vector2 bottomLeftAreaCorner, Vector2 topRightAreaCorner, string prefixName, Material material)
+        public static void CreateMesh(Vector2 bottomLeftAreaCorner, Vector2 topRightAreaCorner, 
+                    string prefixName, Material material, GameObject wallParent)
         {
             Vector3 bottomLeftPoint = new Vector3(bottomLeftAreaCorner.x, 0, bottomLeftAreaCorner.y);
             Vector3 topRightPoint = new Vector3(topRightAreaCorner.x, 0, topRightAreaCorner.y);            
