@@ -14,8 +14,8 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0.24528301, g: 0.24528301, b: 0.24528301, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
   m_LinearFogStart: 0
@@ -541,14 +541,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _totalWidth: 100
   _totalLength: 100
+  _maxIterations: 25
   _roomMinWidth: 25
   _roomMinLength: 25
   _roomBottomLeftModifier: 0.1
   _roomTopRightModifier: 0.9
   _roomOffset: 1
   _corridorWidth: 8
-  _maxIterations: 10
+  _ceilingHeight: 2.2
   _floorMaterial: {fileID: 2100000, guid: 929dc3bf41496594cbcd3d4badf496d4, type: 2}
+  _ceilingMaterial: {fileID: 2100000, guid: 59bf7e279cd8f544a8af8a444fedfe2f, type: 2}
+  _wallHorizontalPrefab: {fileID: 4852748714176617071, guid: 1f1599e6b4ed0b84795bf09af7c72d8a, type: 3}
+  _wallVerticalPrefab: {fileID: 6204338728240132338, guid: 2e5b58c5d2d195e4f8050b228e0325e8, type: 3}
 --- !u!1 &1842080163
 GameObject:
   m_ObjectHideFlags: 0
