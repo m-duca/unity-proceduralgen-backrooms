@@ -541,7 +541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _totalWidth: 100
   _totalLength: 100
-  _maxIterations: 10
+  _maxIterations: 25
   _roomMinWidth: 25
   _roomMinLength: 25
   _roomBottomLeftModifier: 0.1
