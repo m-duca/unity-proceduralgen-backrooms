@@ -21,10 +21,14 @@ namespace Backrooms
         [Header("Single Corridor")]
         [SerializeField] private int _corridorWidth;
 
+        [Header("Ceiling")]
+        [SerializeField] private float _ceilingHeight;
+
         [Header("References")]
         [SerializeField] private Material _floorMaterial;
-        [SerializeField] private GameObject _wallHorizontal;
-        [SerializeField] private GameObject _wallVertical;
+        [SerializeField] private Material _ceilingMaterial;
+        [SerializeField] private GameObject _wallHorizontalPrefab;
+        [SerializeField] private GameObject _wallVerticalPrefab;
 
         // Not serialized
         private SpaceGenerator _generator;
@@ -51,8 +55,12 @@ namespace Backrooms
             GameObject wallParent = new GameObject("WallParent");
             wallParent.transform.SetParent(gameObject.transform);
 
+            GameObject ceilingParent = new GameObject("CeilingParent");
+            wallParent.transform.SetParent(gameObject.transform);
+
             FloorCreator floorCreator = new FloorCreator();
             WallCreator wallCreator = new WallCreator();
+            CeilingCreator ceilingCreator = new CeilingCreator();
 
             foreach (Node room in roomsList)
             {
@@ -67,11 +75,19 @@ namespace Backrooms
                     room.BottomLeftAreaCorner,
                     room.TopRightAreaCorner
                 );
+
+                ceilingCreator.CreateCeiling(
+                    room.BottomLeftAreaCorner, 
+                room.TopRightAreaCorner,
+                _ceilingHeight, 
+                _ceilingMaterial, 
+                ceilingParent.transform
+                );
             }
 
             wallCreator.InstantiateWalls(
-                _wallHorizontal,
-                _wallVertical,
+                _wallHorizontalPrefab,
+                _wallVerticalPrefab,
                 wallParent.transform
             );
         }
