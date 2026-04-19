@@ -6,11 +6,10 @@ namespace Backrooms
     public class SpaceCreator : MonoBehaviour
     {
         // Inspector
-        [Header("Parameters")]
-
         [Header("Total Space")]
         [SerializeField] private int _totalWidth;
         [SerializeField] private int _totalLength;
+        [SerializeField] private int _maxIterations;
 
         [Header("Single Room")]
         [SerializeField] private int _roomMinWidth;
@@ -22,11 +21,10 @@ namespace Backrooms
         [Header("Single Corridor")]
         [SerializeField] private int _corridorWidth;
 
-        [Header("Creation")]
-        [SerializeField] private int _maxIterations;
-
         [Header("References")]
         [SerializeField] private Material _floorMaterial;
+        [SerializeField] private GameObject _wallHorizontal;
+        [SerializeField] private GameObject _wallVertical;
 
         // Not serialized
         private SpaceGenerator _generator;
@@ -34,13 +32,48 @@ namespace Backrooms
         private void Awake() => _generator = new SpaceGenerator(_totalWidth, _totalLength);
 
         private void Start() => CreateSpace();
-
-        private void CreateSpace()
+        public void CreateSpace()
         {
-            List<Node> roomsList = _generator.CalculateSpace(_maxIterations, _roomMinWidth, _roomMinLength, _roomBottomLeftModifier, _roomTopRightModifier, _roomOffset, _corridorWidth);
+            List<Node> roomsList = _generator.CalculateSpace
+            (
+                _maxIterations,
+                _roomMinWidth,
+                _roomMinLength,
+                _roomBottomLeftModifier,
+                _roomTopRightModifier,
+                _roomOffset,
+                _corridorWidth
+            );
+
+            GameObject floorParent = new GameObject("FloorParent");
+            floorParent.transform.SetParent(gameObject.transform);
+
+            GameObject wallParent = new GameObject("WallParent");
+            wallParent.transform.SetParent(gameObject.transform);
+
+            FloorCreator floorCreator = new FloorCreator();
+            WallCreator wallCreator = new WallCreator();
 
             foreach (Node room in roomsList)
-               MeshSpawner.CreateMesh(room.BottomLeftAreaCorner, room.TopRightAreaCorner, "Mesh_Floor_", _floorMaterial);
+            {
+                floorCreator.CreateFloor(
+                    room.BottomLeftAreaCorner,
+                    room.TopRightAreaCorner,
+                    _floorMaterial,
+                    floorParent.transform
+                );
+
+                wallCreator.CalculateWallPositions(
+                    room.BottomLeftAreaCorner,
+                    room.TopRightAreaCorner
+                );
+            }
+
+            wallCreator.InstantiateWalls(
+                _wallHorizontal,
+                _wallVertical,
+                wallParent.transform
+            );
         }
     }
 }

@@ -549,6 +549,8 @@ MonoBehaviour:
   _corridorWidth: 8
   _maxIterations: 10
   _floorMaterial: {fileID: 2100000, guid: 929dc3bf41496594cbcd3d4badf496d4, type: 2}
+  _wallHorizontal: {fileID: 4852748714176617071, guid: 1f1599e6b4ed0b84795bf09af7c72d8a, type: 3}
+  _wallVertical: {fileID: 6204338728240132338, guid: 2e5b58c5d2d195e4f8050b228e0325e8, type: 3}
 --- !u!1 &1842080163
 GameObject:
   m_ObjectHideFlags: 0
