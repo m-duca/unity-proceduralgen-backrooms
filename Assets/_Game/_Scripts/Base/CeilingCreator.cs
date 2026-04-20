@@ -4,7 +4,8 @@ namespace Backrooms
 {
     public class CeilingCreator
     {
-        public void CreateCeiling(Vector2 bottomLeftAreaCorner, Vector2 topRightAreaCorner, float height, Material material, Transform parent)
+        public void CreateCeiling(Vector2 bottomLeftAreaCorner, Vector2 topRightAreaCorner, float height, 
+                        Material material, Transform parent)
         {
             Vector3 bottomLeftPoint = new Vector3(bottomLeftAreaCorner.x, height, bottomLeftAreaCorner.y);
             Vector3 topRightPoint = new Vector3(topRightAreaCorner.x, height, topRightAreaCorner.y);
