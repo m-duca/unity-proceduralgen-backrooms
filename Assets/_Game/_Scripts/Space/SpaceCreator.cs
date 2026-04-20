@@ -65,7 +65,7 @@ namespace Backrooms
             wallParent.transform.SetParent(gameObject.transform);
 
             GameObject ceilingParent = new GameObject("CeilingParent");
-            wallParent.transform.SetParent(gameObject.transform);
+            ceilingParent.transform.SetParent(gameObject.transform);
 
             GameObject pillarParent = new GameObject("PillarParent");
             pillarParent.transform.SetParent(gameObject.transform);
