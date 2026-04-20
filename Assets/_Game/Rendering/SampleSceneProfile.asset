@@ -111,7 +111,7 @@ MonoBehaviour:
     m_Value: 0
   saturation:
     m_OverrideState: 1
-    m_Value: 9
+    m_Value: 10
 --- !u!114 &-3357603926938260329
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -155,7 +155,7 @@ MonoBehaviour:
   active: 1
   type:
     m_OverrideState: 1
-    m_Value: 5
+    m_Value: 3
   intensity:
     m_OverrideState: 1
     m_Value: 0.5
@@ -185,8 +185,8 @@ MonoBehaviour:
   - {fileID: -4910716526211664034}
   - {fileID: -2150321017333916479}
   - {fileID: 5501519201958637806}
-  - {fileID: 1157040907746432887}
   - {fileID: -7280410570729192119}
+  - {fileID: 2593230663297435975}
 --- !u!114 &849379129802519247
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -227,7 +227,7 @@ MonoBehaviour:
   maxNits:
     m_OverrideState: 1
     m_Value: 647
---- !u!114 &1157040907746432887
+--- !u!114 &2593230663297435975
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -236,19 +236,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5485954d14dfb9a4c8ead8edb0ded5b1, type: 3}
-  m_Name: LiftGammaGain
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.LiftGammaGain
+  m_Script: {fileID: 11500000, guid: 221518ef91623a7438a71fef23660601, type: 3}
+  m_Name: WhiteBalance
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.WhiteBalance
   active: 1
-  lift:
+  temperature:
     m_OverrideState: 1
-    m_Value: {x: 0.9807587, y: 1, z: 0.94721156, w: -0.02647831}
-  gamma:
+    m_Value: 60
+  tint:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.94594187, z: 0.57144946, w: 0.1454233}
-  gain:
-    m_OverrideState: 1
-    m_Value: {x: 1, y: 0.8803548, z: 0.74518776, w: -0.12831475}
+    m_Value: 25
 --- !u!114 &5501519201958637806
 MonoBehaviour:
   m_ObjectHideFlags: 3
