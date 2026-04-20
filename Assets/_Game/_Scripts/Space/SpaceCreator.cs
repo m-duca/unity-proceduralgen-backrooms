@@ -23,15 +23,19 @@ namespace Backrooms
 
         [Header("Ceilings")]
         [SerializeField] private float _ceilingHeight;
+        [SerializeField] private Material _ceilingMaterial;
+
 
         [Header("Pillars")]
-        [SerializeField] private GameObject _pillarPrefab;
+        [SerializeField] private GameObject[] _pillarPrefabs;
         [SerializeField, Range(0, 100)] private int _pillarSpawnChance;
         [SerializeField] private int _pillarOffset;
+        [SerializeField] private float _minDistanceBetweenPillars;
 
-        [Header("References")]
+        [Header("Floors")]
         [SerializeField] private Material _floorMaterial;
-        [SerializeField] private Material _ceilingMaterial;
+
+        [Header("Walls")]
         [SerializeField] private GameObject _wallHorizontalPrefab;
         [SerializeField] private GameObject _wallVerticalPrefab;
 
@@ -96,10 +100,11 @@ namespace Backrooms
                 pillarCreator.CreatePillars(
     room.BottomLeftAreaCorner,
     room.TopRightAreaCorner,
-        _pillarPrefab,
+        _pillarPrefabs,
             pillarParent.transform,
         _pillarSpawnChance,
-            _pillarOffset
+            _pillarOffset,
+            _minDistanceBetweenPillars
                 );
             }
 

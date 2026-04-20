@@ -7,8 +7,8 @@ namespace Backrooms
     {
         private HashSet<Vector2Int> _spawnedPillars = new HashSet<Vector2Int>();
 
-        public void CreatePillars(Vector2Int bottomLeftAreaCorner, Vector2Int topRightAreaCorner, GameObject pillarPrefab,
-                    Transform parent, int spawnChance, int offset)
+        public void CreatePillars(Vector2Int bottomLeftAreaCorner, Vector2Int topRightAreaCorner, GameObject[] pillarPrefabs,
+                    Transform parent, int spawnChance, int offset, float minDistanceBetweenPillars)
         {
             for (int x = bottomLeftAreaCorner.x + offset; x < topRightAreaCorner.x - offset; x++)
             {
@@ -19,24 +19,27 @@ namespace Backrooms
                     if (Random.Range(0, 100) > spawnChance)
                         continue;
 
-                    if (IsNearOtherPillar(currentPos))
+                    if (IsNearOtherPillar(currentPos, minDistanceBetweenPillars))
                         continue;
 
                     Vector3 worldPos = new Vector3(x, 0, y);
 
-                    GameObject.Instantiate(pillarPrefab, worldPos, Quaternion.identity, parent);
+                    GameObject.Instantiate(pillarPrefabs[Random.Range(0, pillarPrefabs.Length)], worldPos, Quaternion.identity, parent);
 
                     _spawnedPillars.Add(currentPos);
                 }
             }
         }
 
-        private bool IsNearOtherPillar(Vector2Int pos)
+        private bool IsNearOtherPillar(Vector2Int pos, float minDistanceBetweenPillars)
         {
-            return _spawnedPillars.Contains(pos + Vector2Int.up) ||
-                   _spawnedPillars.Contains(pos + Vector2Int.down) ||
-                   _spawnedPillars.Contains(pos + Vector2Int.left) ||
-                   _spawnedPillars.Contains(pos + Vector2Int.right);
+            foreach (var pillar in _spawnedPillars)
+            {
+                if (Vector2Int.Distance(pos, pillar) < minDistanceBetweenPillars)
+                    return true;
+            }
+
+            return false;
         }
     }
 }
