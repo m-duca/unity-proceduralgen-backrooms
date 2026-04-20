@@ -11,18 +11,23 @@ namespace Backrooms
         [SerializeField] private int _totalLength;
         [SerializeField] private int _maxIterations;
 
-        [Header("Single Room")]
+        [Header("Rooms")]
         [SerializeField] private int _roomMinWidth;
         [SerializeField] private int _roomMinLength;
         [SerializeField, Range(0.0f, 0.3f)] private float _roomBottomLeftModifier;
         [SerializeField, Range(0.7f, 1f)] private float _roomTopRightModifier;
         [SerializeField, Range(0, 2)] private int _roomOffset;
 
-        [Header("Single Corridor")]
+        [Header("Corridors")]
         [SerializeField] private int _corridorWidth;
 
-        [Header("Ceiling")]
+        [Header("Ceilings")]
         [SerializeField] private float _ceilingHeight;
+
+        [Header("Pillars")]
+        [SerializeField] private GameObject _pillarPrefab;
+        [SerializeField, Range(0, 100)] private int _pillarSpawnChance;
+        [SerializeField] private int _pillarOffset;
 
         [Header("References")]
         [SerializeField] private Material _floorMaterial;
@@ -58,9 +63,13 @@ namespace Backrooms
             GameObject ceilingParent = new GameObject("CeilingParent");
             wallParent.transform.SetParent(gameObject.transform);
 
+            GameObject pillarParent = new GameObject("PillarParent");
+            pillarParent.transform.SetParent(gameObject.transform);
+
             FloorCreator floorCreator = new FloorCreator();
             WallCreator wallCreator = new WallCreator();
             CeilingCreator ceilingCreator = new CeilingCreator();
+            PillarCreator pillarCreator = new PillarCreator();
 
             foreach (Node room in roomsList)
             {
@@ -77,11 +86,20 @@ namespace Backrooms
                 );
 
                 ceilingCreator.CreateCeiling(
-                    room.BottomLeftAreaCorner, 
+                    room.BottomLeftAreaCorner,
                 room.TopRightAreaCorner,
-                _ceilingHeight, 
-                _ceilingMaterial, 
+                _ceilingHeight,
+                _ceilingMaterial,
                 ceilingParent.transform
+                );
+
+                pillarCreator.CreatePillars(
+    room.BottomLeftAreaCorner,
+    room.TopRightAreaCorner,
+        _pillarPrefab,
+            pillarParent.transform,
+        _pillarSpawnChance,
+            _pillarOffset
                 );
             }
 

@@ -4,7 +4,8 @@ namespace Backrooms
 {
     public class FloorCreator
     {
-        public void CreateFloor(Vector2 bottomLeftAreaCorner, Vector2 topRightAreaCorner, Material material, Transform parent)
+        public void CreateFloor(Vector2 bottomLeftAreaCorner, Vector2 topRightAreaCorner, 
+                    Material material, Transform parent)
         {
             Vector3 bottomLeftPoint = new Vector3(bottomLeftAreaCorner.x, 0, bottomLeftAreaCorner.y);
             Vector3 topRightPoint = new Vector3(topRightAreaCorner.x, 0, topRightAreaCorner.y);
