@@ -25,7 +25,6 @@ namespace Backrooms
         [SerializeField] private float _ceilingHeight;
         [SerializeField] private Material _ceilingMaterial;
 
-
         [Header("Pillars")]
         [SerializeField] private GameObject[] _pillarPrefabs;
         [SerializeField, Range(0, 100)] private int _pillarSpawnChance;
@@ -38,6 +37,9 @@ namespace Backrooms
         [Header("Walls")]
         [SerializeField] private GameObject _wallHorizontalPrefab;
         [SerializeField] private GameObject _wallVerticalPrefab;
+
+        [Header("Player")]
+        [SerializeField] private GameObject _playerPrefab;
 
         // Not serialized
         private SpaceGenerator _generator;
@@ -113,6 +115,9 @@ namespace Backrooms
                 _wallVerticalPrefab,
                 wallParent.transform
             );
+
+            PlayerSpawner playerSpawner = new PlayerSpawner();
+            playerSpawner.SpawnPlayer(roomsList, _playerPrefab);
         }
     }
 }
