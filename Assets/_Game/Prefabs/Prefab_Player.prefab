@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6666794759403101425}
   - component: {fileID: 8175820552111576666}
   - component: {fileID: 5786194577988706917}
+  - component: {fileID: 6313909085927403650}
   m_Layer: 0
   m_Name: Go_MainCamera
   m_TagString: MainCamera
@@ -186,6 +187,22 @@ MonoBehaviour:
   _headBobIntensity: 0.18
   _headBobSpeed: 3.25
   _headBobStopDuration: 1
+--- !u!114 &6313909085927403650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640457026705555606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af7f1522523c5042b86b275bf345bbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Backrooms.CameraNoClipFall
+  _fallDistance: 1.5
+  _fallDuration: 0.3
+  _recoverDuration: 0.7
+  _cameraRotation: {fileID: 6666794759403101425}
 --- !u!1 &7257364367080789510
 GameObject:
   m_ObjectHideFlags: 0
