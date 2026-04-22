@@ -13,6 +13,7 @@ namespace Backrooms
         [Header("References")]
         [SerializeField] private CharacterController _characterController;
         [SerializeField] private InputActionReference _moveAction;
+        [SerializeField] private CameraHeadBob _cameraHeadBob;
 
         // Not serialized
         private Vector2 _moveInput = Vector2.zero;
@@ -27,6 +28,7 @@ namespace Backrooms
         private void Update()
         {
             ApplyMovement();
+            HandleBob();
         }
 
         #region Inputs
@@ -67,6 +69,14 @@ namespace Backrooms
         public bool IsMoving()
         {
             return _curSpeed.magnitude > 0.01f;
+        }
+
+        private void HandleBob()
+        {
+            if (IsMoving())
+                _cameraHeadBob.StartHeadBob();
+            else
+                _cameraHeadBob.StopHeadBob();
         }
 
         #endregion
