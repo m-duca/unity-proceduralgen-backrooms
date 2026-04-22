@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7619259722331684706}
   - component: {fileID: 6666794759403101425}
   - component: {fileID: 8175820552111576666}
+  - component: {fileID: 5786194577988706917}
   m_Layer: 0
   m_Name: Go_MainCamera
   m_TagString: MainCamera
@@ -170,6 +171,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _isShowing: 0
+--- !u!114 &5786194577988706917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640457026705555606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e00c5394587480478142250b2d5fd78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Backrooms.CameraHeadbob
+  _headBobIntensity: 0.18
+  _headBobSpeed: 3.25
+  _headBobStopDuration: 1
 --- !u!1 &7257364367080789510
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,11 +257,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45009ae635b2e2644872f880fabc95dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  _maxSpeed: 5
+  _maxSpeed: 3.8
   _acceleration: 10
   _deceleration: 10
   _characterController: {fileID: 1953986474936208539}
   _moveAction: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  _cameraHeadBob: {fileID: 5786194577988706917}
 --- !u!1 &9130714543994655859
 GameObject:
   m_ObjectHideFlags: 0
