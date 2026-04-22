@@ -361,14 +361,15 @@ MonoBehaviour:
   _roomTopRightModifier: 0.9
   _roomOffset: 1
   _corridorWidth: 8
-  _ceilingHeight: 2.2
+  _ceilingHeight: 4
   _ceilingMaterial: {fileID: 2100000, guid: 59bf7e279cd8f544a8af8a444fedfe2f, type: 2}
   _pillarPrefabs:
   - {fileID: 3519111060552662047, guid: 29b641f3274cf4748a665a543dc07dfc, type: 3}
   - {fileID: 4001333941558229702, guid: 75fd6002eb5ec2d41b9b4432062c6c26, type: 3}
-  _pillarSpawnChance: 10
-  _pillarOffset: 5
-  _minDistanceBetweenPillars: 5
+  - {fileID: 4001333941558229702, guid: 94c42dfae70b9cf4c86608dbeecb9a95, type: 3}
+  _pillarSpawnChance: 2
+  _pillarOffset: 4
+  _minDistanceBetweenPillars: 10
   _floorMaterial: {fileID: 2100000, guid: 3466c1334e240c24e98255bad603dce9, type: 2}
   _wallHorizontalPrefab: {fileID: 4852748714176617071, guid: 1f1599e6b4ed0b84795bf09af7c72d8a, type: 3}
   _wallVerticalPrefab: {fileID: 6204338728240132338, guid: 2e5b58c5d2d195e4f8050b228e0325e8, type: 3}

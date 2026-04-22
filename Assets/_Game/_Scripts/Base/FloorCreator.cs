@@ -41,7 +41,13 @@ namespace Backrooms
             mesh.uv = uvs;
             mesh.triangles = triangles;
 
-            GameObject meshGo = new GameObject($"Mesh_Floor_{bottomLeftAreaCorner}", typeof(MeshFilter), typeof(MeshRenderer));
+            GameObject meshGo = new GameObject
+            (
+                $"Mesh_Floor_{bottomLeftAreaCorner}", 
+                typeof(MeshFilter), 
+                typeof(MeshRenderer),
+                typeof(MeshCollider)
+            );
             
             if (parent != null)
                 meshGo.transform.parent = parent;
@@ -52,6 +58,7 @@ namespace Backrooms
             
             meshGo.GetComponent<MeshFilter>().mesh = mesh;
             meshGo.GetComponent<MeshRenderer>().material = material;
+            meshGo.GetComponent<MeshCollider>().convex = true;
         }
     }
 }

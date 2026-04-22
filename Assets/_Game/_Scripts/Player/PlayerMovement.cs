@@ -10,10 +10,6 @@ namespace Backrooms
         [SerializeField] private float _acceleration;
         [SerializeField] private float _deceleration;
 
-        [Header("Gravity")]
-        [SerializeField] private float _groundGravity;
-        [SerializeField] private float _gravityForce;
-
         [Header("References")]
         [SerializeField] private CharacterController _characterController;
         [SerializeField] private InputActionReference _moveAction;
@@ -21,7 +17,6 @@ namespace Backrooms
         // Not serialized
         private Vector2 _moveInput = Vector2.zero;
         private Vector3 _curSpeed = Vector3.zero;
-        private float _curGravity;
 
         private void OnValidate() => _characterController = GetComponent<CharacterController>();
 
@@ -32,7 +27,6 @@ namespace Backrooms
         private void Update()
         {
             ApplyMovement();
-            ApplyGravity();
         }
 
         #region Inputs
@@ -68,16 +62,6 @@ namespace Backrooms
                 _curSpeed = Vector3.Lerp(_curSpeed, Vector3.zero, _deceleration * Time.deltaTime);
 
             _characterController.Move(_curSpeed * Time.deltaTime);
-        }
-
-        private void ApplyGravity()
-        {
-            if (_characterController.isGrounded && _curGravity < 0)
-                _curGravity = _groundGravity;
-
-            _curGravity += _gravityForce * Time.deltaTime;
-
-            _characterController.Move(Vector3.up * _curGravity * Time.deltaTime);
         }
 
         public bool IsMoving()

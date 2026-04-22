@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Backrooms
 {
@@ -15,8 +17,8 @@ namespace Backrooms
                 for (int y = bottomLeftAreaCorner.y + offset; y < topRightAreaCorner.y - offset; y++)
                 {
                     Vector2Int currentPos = new Vector2Int(x, y);
-
-                    if (Random.Range(0, 100) > spawnChance)
+                    
+                    if (IsOnMiddleArea(currentPos, bottomLeftAreaCorner, topRightAreaCorner))
                         continue;
 
                     if (IsNearOtherPillar(currentPos, minDistanceBetweenPillars))
@@ -29,6 +31,17 @@ namespace Backrooms
                     _spawnedPillars.Add(currentPos);
                 }
             }
+        }
+
+        private bool IsOnMiddleArea(Vector2Int currentPos, Vector2Int bottomLeftAreaCorner, Vector2Int topRightAreaCorner)
+        {
+            Vector2Int centerPos = new Vector2Int((bottomLeftAreaCorner.x + topRightAreaCorner.x) / 2, (bottomLeftAreaCorner.y + topRightAreaCorner.y) / 2);
+            int ignoreRadius = 2;
+
+            int posX = Mathf.Abs(currentPos.x - centerPos.x);
+            int posY = Mathf.Abs(currentPos.y - centerPos.y);
+
+            return posX <= ignoreRadius && posY <= ignoreRadius;
         }
 
         private bool IsNearOtherPillar(Vector2Int pos, float minDistanceBetweenPillars)
