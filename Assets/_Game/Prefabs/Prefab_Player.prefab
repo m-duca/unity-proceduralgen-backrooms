@@ -262,7 +262,7 @@ MonoBehaviour:
   _deceleration: 10
   _characterController: {fileID: 1953986474936208539}
   _moveAction: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  _cameraHeadbob: {fileID: 5786194577988706917}
+  _cameraHeadBob: {fileID: 5786194577988706917}
 --- !u!1 &9130714543994655859
 GameObject:
   m_ObjectHideFlags: 0
