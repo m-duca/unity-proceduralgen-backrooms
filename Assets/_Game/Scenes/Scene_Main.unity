@@ -199,11 +199,11 @@ MonoBehaviour:
   _sfxDefaultVolume: 0.5
   _ambienceEvents:
   - Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1741143655
+      Data2: 1241671430
+      Data3: -940310611
+      Data4: 741554037
+    Path: event:/Ambience/Ambience_DefaultNoise
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0

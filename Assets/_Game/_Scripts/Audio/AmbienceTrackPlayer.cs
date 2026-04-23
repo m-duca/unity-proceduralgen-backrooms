@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Backrooms
@@ -7,6 +8,10 @@ namespace Backrooms
         [Header("Parameters")]
         [SerializeField] private AmbienceTrackType _track;
         
-        private void Start() => AudioManager.Instance.PlayAmbience(_track);
+        private IEnumerator Start() 
+        {
+            yield return new WaitForSeconds(1f);
+            AudioManager.Instance.PlayAmbience(_track);
+        }
     }
 }
