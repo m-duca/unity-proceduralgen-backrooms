@@ -197,7 +197,13 @@ MonoBehaviour:
   _masterDefaultVolume: 0.5
   _ambienceDefaultVolume: 0.5
   _sfxDefaultVolume: 0.5
-  _ambienceEvents: []
+  _ambienceEvents:
+  - Guid:
+      Data1: -1741143655
+      Data2: 1241671430
+      Data3: -940310611
+      Data4: 741554037
+    Path: event:/Ambience/Ambience_DefaultNoise
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,6 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 056ab6460a97e98419f15f03116aa249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Backrooms.AmbienceTrackPlayer
+  _track: 0
 --- !u!1 &1128220059
 GameObject:
   m_ObjectHideFlags: 0
