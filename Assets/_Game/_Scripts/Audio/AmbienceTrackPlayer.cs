@@ -10,7 +10,7 @@ namespace Backrooms
         
         private IEnumerator Start() 
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.2f);
             AudioManager.Instance.PlayAmbience(_track);
         }
     }

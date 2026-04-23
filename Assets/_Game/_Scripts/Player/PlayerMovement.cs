@@ -1,3 +1,4 @@
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,9 +16,14 @@ namespace Backrooms
         [SerializeField] private InputActionReference _moveAction;
         [SerializeField] private CameraHeadBob _cameraHeadBob;
 
+        [Header("SFX")]
+        [SerializeField] private EventReference _footstepsEventRef;
+        [SerializeField] private float _footstepsInterval;
+
         // Not serialized
         private Vector2 _moveInput = Vector2.zero;
         private Vector3 _curSpeed = Vector3.zero;
+        private bool _canPlayFootsteps = true;
 
         private void OnValidate() => _characterController = GetComponent<CharacterController>();
 
@@ -29,6 +35,7 @@ namespace Backrooms
         {
             ApplyMovement();
             HandleBob();
+            HandleFootsteps();
         }
 
         #region Inputs
@@ -78,6 +85,25 @@ namespace Backrooms
             else
                 _cameraHeadBob.StopHeadBob();
         }
+
+        #endregion
+
+        #region SFX
+
+        private void HandleFootsteps()
+        {
+            if (IsMoving() && _canPlayFootsteps)
+                PlayFootsteps();
+        }
+
+        private void PlayFootsteps()
+        {
+            AudioManager.Instance.PlayOneShot(_footstepsEventRef, transform.position);
+            _canPlayFootsteps = false;
+            Invoke(nameof(ResetCanPlayFootsteps), _footstepsInterval);
+        }
+
+        private void ResetCanPlayFootsteps() => _canPlayFootsteps = true;
 
         #endregion
     }
