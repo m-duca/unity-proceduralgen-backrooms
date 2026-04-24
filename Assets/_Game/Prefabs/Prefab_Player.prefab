@@ -288,10 +288,10 @@ MonoBehaviour:
   _cameraHeadBob: {fileID: 5786194577988706917}
   _footstepsEventRef:
     Guid:
-      Data1: 1777284666
-      Data2: 1127395661
-      Data3: -1896039028
-      Data4: 1873162242
+      Data1: 1438336605
+      Data2: 1278811275
+      Data3: -2125459537
+      Data4: 551856525
     Path: event:/SFX/Sfx_Footsteps
   _footstepsInterval: 0.82
 --- !u!1 &9130714543994655859

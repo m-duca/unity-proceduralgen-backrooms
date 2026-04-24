@@ -196,7 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   _masterDefaultVolume: 0.5
   _ambienceDefaultVolume: 0.5
-  _sfxDefaultVolume: 0.5
+  _sfxDefaultVolume: 1
   _ambienceEvents:
   - Guid:
       Data1: -1741143655
