@@ -33,7 +33,7 @@ The project explores modular environment creation with procedural room layouts, 
 
 ---
 
-## 📦 Créditos de Assets
+## 📦 Assets Credits
 
 - **[Sinforoso Button](https://github.com/BonecoSinforoso/SinforosoButton)** – Boneco Sinforoso
 - **[Horror Ambience 4](https://pixabay.com/pt/sound-effects/horror-horror-ambience-4-303645/)** – TheLlywellyn
