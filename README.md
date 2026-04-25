@@ -1,9 +1,16 @@
-# 🚪Unity Procedural Backrooms Prototype
-![Backrooms preview](./ReadmeAssets/scene_preview.gif)
+# 🚪 Unity Procedural Backrooms Prototype
+
+<p align="center">
+  <img src="./ReadmeAssets/playmode_preview.gif" alt="Backrooms preview" />
+</p>
 
 A prototype developed in Unity focused on **procedural room generation** with Binary Space Partitioning (BSP), inspired by the unsettling and endless atmosphere of the Backrooms.
 
 The project explores modular environment creation with procedural room layouts, and immersive horror atmosphere design.
+
+<p align="center">
+  <img src="./ReadmeAssets/generation_preview.gif" alt="Generation preview" />
+</p>
 
 ---
 
