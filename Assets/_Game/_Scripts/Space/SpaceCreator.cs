@@ -1,5 +1,7 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Backrooms
 {
@@ -117,7 +119,19 @@ namespace Backrooms
             );
 
             PlayerSpawner playerSpawner = new PlayerSpawner();
-            playerSpawner.SpawnPlayer(roomsList, _playerPrefab);
+            playerSpawner.SpawnPlayer(roomsList, _playerPrefab, this.transform);
+        }
+        
+        [SinforosoButton]
+        private void Regenerate()
+        {
+            while(transform.childCount > 0)
+            {
+                foreach (Transform child in transform)
+                    DestroyImmediate(child.gameObject);
+            }
+
+            CreateSpace();
         }
     }
 }
