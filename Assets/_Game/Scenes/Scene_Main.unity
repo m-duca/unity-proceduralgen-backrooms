@@ -119,6 +119,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &37770563
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 37770565}
+  - component: {fileID: 37770564}
+  m_Layer: 0
+  m_Name: AmbienceTrackPlayer_HorrorNoise
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &37770564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37770563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056ab6460a97e98419f15f03116aa249, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Backrooms.AmbienceTrackPlayer
+  _track: 1
+--- !u!4 &37770565
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37770563}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &206595968
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,7 +206,7 @@ GameObject:
   - component: {fileID: 384168369}
   - component: {fileID: 384168370}
   m_Layer: 0
-  m_Name: Go_AudioManager
+  m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -204,6 +249,12 @@ MonoBehaviour:
       Data3: -940310611
       Data4: 741554037
     Path: event:/Ambience/Ambience_DefaultNoise
+  - Guid:
+      Data1: -1037857365
+      Data2: 1235199420
+      Data3: -650499415
+      Data4: -722340612
+    Path: event:/Ambience/Ambience_HorrorNoise
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,7 +393,7 @@ GameObject:
   - component: {fileID: 853115194}
   - component: {fileID: 853115195}
   m_Layer: 0
-  m_Name: Go_AmbienceTrackPlayer
+  m_Name: AmbienceTrackPlayer_DefaultNoise
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -418,7 +469,7 @@ GameObject:
   - component: {fileID: 1549474207}
   - component: {fileID: 1549474208}
   m_Layer: 0
-  m_Name: Go_SpaceCreator
+  m_Name: SpaceCreator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -515,3 +566,4 @@ SceneRoots:
   - {fileID: 206595969}
   - {fileID: 1549474207}
   - {fileID: 853115194}
+  - {fileID: 37770565}

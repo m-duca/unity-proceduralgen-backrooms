@@ -2,6 +2,7 @@ using FMOD.Studio;
 using FMODUnity;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using STOP_MODE = FMOD.Studio.STOP_MODE;
 
@@ -20,7 +21,7 @@ namespace Backrooms
         [SerializeField] private EventReference[] _ambienceEvents;
 
         // Not serialized
-        private EventInstance _ambienceInstance;
+        private readonly Dictionary<AmbienceTrackType, EventInstance> _ambienceInstances = new();
 
         private Bus _masterBus;
         private Bus _ambienceBus;
@@ -109,6 +110,9 @@ namespace Backrooms
 
         public void PlayAmbience(AmbienceTrackType trackValue)
         {
+            if (_ambienceInstances.ContainsKey(trackValue))
+                return;
+
             EventReference ambience = _ambienceEvents[(int)trackValue];
 
             if (ambience.IsNull)
@@ -117,15 +121,48 @@ namespace Backrooms
                 return;
             }
 
-            PlayTrack(ref _ambienceInstance, ambience);
+            EventInstance instance = PlayTrack(ambience);
+
+            _ambienceInstances.Add(trackValue, instance);
         }
 
-        public void StopAmbience()
+        public void StopAmbience(AmbienceTrackType trackValue)
         {
-            StopTrack(ref _ambienceInstance);
+            if (!_ambienceInstances.TryGetValue(trackValue, out EventInstance instance))
+                return;
+
+            StopTrack(ref instance);
+            _ambienceInstances.Remove(trackValue);
         }
 
-        public void PauseAmbience() => PauseTrack(ref _ambienceInstance);
+        public void StopAllAmbiences()
+        {
+            foreach (EventInstance instance in _ambienceInstances.Values)
+            {
+                EventInstance temp = instance;
+                StopTrack(ref temp);
+            }
+
+            _ambienceInstances.Clear();
+        }
+
+        public void PauseAllAmbiences()
+        {
+            foreach (EventInstance instance in _ambienceInstances.Values)
+            {
+                EventInstance temp = instance;
+                PauseTrack(ref temp);
+            }
+        }
+
+        public void ResumeAllAmbiences()
+        {
+            foreach (EventInstance instance in _ambienceInstances.Values)
+            {
+                EventInstance temp = instance;
+                ResumeTrack(ref temp);
+            }
+        }
 
         #endregion
 
@@ -153,20 +190,20 @@ namespace Backrooms
             instanceValue.setPaused(false);
         }
 
-        private void PlayTrack(ref EventInstance instanceValue, EventReference referenceValue)
+        private EventInstance PlayTrack(EventReference referenceValue)
         {
-            StopTrack(ref instanceValue);
-
-            instanceValue = CreateEventInstance(referenceValue);
+            EventInstance instance = CreateEventInstance(referenceValue);
 
             Camera mainCam = Camera.main;
             if (mainCam != null)
-                RuntimeManager.AttachInstanceToGameObject(instanceValue, mainCam.transform);
+                RuntimeManager.AttachInstanceToGameObject(instance, mainCam.gameObject);
             else
                 Debug.LogError("Failed finding Main Camera!");
 
-            instanceValue.start();
-            instanceValue.release();
+            instance.start();
+            instance.release();
+
+            return instance;
         }
 
         #endregion

@@ -2,6 +2,7 @@ namespace Backrooms
 {
     public enum AmbienceTrackType
     {
-        DefaultNoise = 0
+        DefaultNoise = 0,
+        HorrorNoise = 1
     }
 }
