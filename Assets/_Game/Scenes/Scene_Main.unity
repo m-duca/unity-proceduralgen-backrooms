@@ -15,9 +15,9 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
   m_Fog: 1
-  m_FogColor: {r: 0.06666667, g: 0.08627451, b: 0, a: 1}
+  m_FogColor: {r: 0.35686275, g: 0.34901962, b: 0.27450982, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.02
+  m_FogDensity: 0.045
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.96504456, g: 1.1270249, b: 0.239227, a: 1}
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   _masterDefaultVolume: 0.5
   _ambienceDefaultVolume: 0.5
-  _sfxDefaultVolume: 0.5
+  _sfxDefaultVolume: 1
   _ambienceEvents:
   - Guid:
       Data1: -1741143655
