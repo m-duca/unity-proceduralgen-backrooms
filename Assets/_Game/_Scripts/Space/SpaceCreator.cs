@@ -123,7 +123,7 @@ namespace Backrooms
         }
         
         [SinforosoButton]
-        private void Reload()
+        private void Regenerate()
         {
             while(transform.childCount > 0)
             {
