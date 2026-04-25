@@ -33,6 +33,16 @@ The project explores modular environment creation with procedural room layouts, 
 
 ---
 
+## 📦 Créditos de Assets
+
+- **[Sinforoso Button](https://github.com/BonecoSinforoso/SinforosoButton)** – Boneco Sinforoso
+- **[Horror Ambience 4](https://pixabay.com/pt/sound-effects/horror-horror-ambience-4-303645/)** – TheLlywellyn
+- **[Backrooms Ambience](https://freesound.org/people/Resaural/sounds/626096/)** – Resaural
+- **[Footsteps on Carpet SFX](https://limen-dev.itch.io/ethereal-solitude-sfx-starter-pack-vol1)** – Limen_dev
+- **[Backrooms Props](https://assetstore.unity.com/packages/3d/environments/backrooms-like-asset-pack-254543)** – Loafbrr
+
+---
+
 ## 👁️ Final Notes
 
 This project is a **non-commercial prototype created for learning and experimentation**, with emphasis on procedural generation, atmosphere design, and immersive horror gameplay systems.
