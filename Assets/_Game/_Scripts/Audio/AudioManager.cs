@@ -35,25 +35,21 @@ namespace Backrooms
 
         private void Awake()
         {
-            if (Instance == null)
+            if (Instance != null && Instance != this)
             {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
+                Destroy(gameObject);
                 return;
             }
 
-            Destroy(gameObject);
-        }
-
-        private IEnumerator Start()
-        {
-            yield return new WaitForSeconds(0.1f);
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
 
             _masterBus = RuntimeManager.GetBus(BUS_MASTER);
             _ambienceBus = RuntimeManager.GetBus(BUS_AMBIENCE);
             _sfxBus = RuntimeManager.GetBus(BUS_SFX);
-            SetInitialVolumes();
         }
+
+        private void Start() => SetInitialVolumes();
 
         #region Volume
 
@@ -201,7 +197,6 @@ namespace Backrooms
                 Debug.LogError("Failed finding Main Camera!");
 
             instance.start();
-            instance.release();
 
             return instance;
         }

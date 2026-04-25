@@ -13,5 +13,7 @@ namespace Backrooms
             yield return new WaitForSeconds(0.2f);
             AudioManager.Instance.PlayAmbience(_track);
         }
+
+        private void OnDestroy() => AudioManager.Instance.StopAmbience(_track);
     }
 }
