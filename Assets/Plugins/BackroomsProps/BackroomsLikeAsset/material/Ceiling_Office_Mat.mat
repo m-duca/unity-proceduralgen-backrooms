@@ -89,7 +89,7 @@ Material:
     m_Colors:
     - _Blue_Area_Color: {r: 1, g: 1, b: 1, a: 0}
     - _ColorOverlay: {r: 0, g: 0, b: 0, a: 1}
-    - _Emission_Color: {r: 24.094118, g: 24.094118, b: 24.094118, a: 0}
+    - _Emission_Color: {r: 40.017426, g: 35.34558, b: 8.871788, a: 0}
     - _Green_Area_Color: {r: 1, g: 1, b: 1, a: 0}
     - _Red_Area_Color: {r: 1, g: 1, b: 1, a: 0}
     - _UV_Tiling: {r: 0.2, g: 0.2, b: 0, a: 0}
